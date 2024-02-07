@@ -1,5 +1,5 @@
 from Deal import Deal
 
-class Income(Deal):
+class Expense(Deal):
 	def __init__(self) -> None:
 		pass
