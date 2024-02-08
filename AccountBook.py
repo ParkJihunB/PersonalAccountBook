@@ -8,3 +8,5 @@ class AccountBook():
 
 	def add_deal(self,date_time,deal):
 		self.book.add_deal(date_time,deal)
+	
+	def sample(self): print("sample")
