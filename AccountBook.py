@@ -1,9 +1,9 @@
-from JsonManager import JsonManager
+from DataManager import DataManager
 from Book import Book
 
 class AccountBook():
 	def __init__(self) -> None:
-		self.jsonM = JsonManager()
+		self.dataM = DataManager()
 		self.book = Book()
 
 	def add_deal(self,date_time,deal):
