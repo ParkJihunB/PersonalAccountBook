@@ -2,10 +2,14 @@ import json
 
 class JsonManager():
 	file_name = "data.json"
-	data = None
-	def __init__(self) -> None:
-		self.load_data()
+	def __init__(self) -> None:pass
 
 	def load_data(self):
 		with open(self.file_name, encoding='UTF8') as f:
-			self.data = json.load(f)
+			data = json.load(f)
+		return data
+	
+	def save_data(self,data,file_name = ""):
+		if file_name == "": file_name = self.file_name
+		with open(file_name, 'w',encoding='UTF8') as f:
+			json.dump(data,f,indent=4)
