@@ -7,14 +7,20 @@ def createPushBtn(name, func):
 	btn.clicked.connect(func)
 	return btn
 
-def createLineEdit(limit=""):
+def createLineEdit(limit = None):
 	line_edit = QLineEdit()
-	if limit=="": pass
-	elif limit=="int": line_edit.setValidator(QtGui.QIntValidator())
+	if limit != None: line_edit.setValidator(limit)
 	return line_edit
 
+def createHbox(items = []):
+	hbox = QHBoxLayout()
+	for item in items:
+		if item.isWidgetType():
+			hbox.addWidget(item)
+		else: hbox.addLayout(item)
+	return hbox
 
-def createLabelAndLineEditLayout(label_content:str,limit = ""):
+def createLabelAndLineEditLayout(label_content:str,limit):
 	label = QLabel(label_content)
 	line_edit = createLineEdit(limit)
 

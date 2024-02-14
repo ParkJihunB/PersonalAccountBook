@@ -12,9 +12,9 @@ from GuiManager import GuiManager
 # ab.add_deal(dt,ex)
 
 
-app = QApplication(sys.argv)
-win = GuiManager()
-win.show()
-app.exec_()
+# app = QApplication(sys.argv)
+# win = GuiManager()
+# win.show()
+# app.exec_()
 
-#pyreverse -o png ./
+#pyreverse -o png ./Q

@@ -7,8 +7,8 @@ class Year():
 		for i in range(1,13):
 			self.months.append(Month(i))
 
-	def add_deal(self, date_time, deal):
-		self.get_month(date_time.month).add_deal(date_time,deal)
+	def add_deal(self,data:dict):
+		self.get_month(data["month"]).add_deal(data)
 		
 	def get_month(self,index):
 		for month in self.months:

@@ -8,5 +8,5 @@ class Day():
 		self.expenses = []
 		self.incomes = []
 
-	def add_deal(self, date_time, deal):
-		print(type(deal))
+	def add_deal(self,data:dict):
+		print(data)
