@@ -8,17 +8,8 @@ class Day():
 		self.expenses = []
 		self.incomes = []
 
-<<<<<<< HEAD
 	def add_deal(self,data:dict):
 		print(data)
-=======
-	def add_deal(self, date_time, deal):
-		if self.check_duplicate(date_time, deal):
-			print("duplicate")
-		temp_ex = Expense()
-		temp_ex.amount = deal.amount
-		temp_ex.dateTime = date_time
-		self.expenses.append(temp_ex)
 
 	#일단은 expense만 가져온걸로 함
 	def check_duplicate(self,date_time,deal):
@@ -29,4 +20,3 @@ class Day():
 			if deal.amount != deal.amount: continue
 			return True
 		return False
->>>>>>> 3202bc970e96dfb27a37ce20704b3560eebd24b4
