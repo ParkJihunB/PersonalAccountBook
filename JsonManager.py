@@ -8,3 +8,8 @@ class JsonManager():
 		with open(self.file_name, encoding='UTF8') as f:
 			data = json.load(f)
 		return data
+	
+	def save_data(self,data,file_name = ""):
+		if file_name == "": file_name = self.file_name
+		with open(file_name, 'w',encoding='UTF8') as f:
+			json.dump(data,f,indent=4)
