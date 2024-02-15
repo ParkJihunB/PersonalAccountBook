@@ -1,17 +1,13 @@
 from Day import Day
+from Calender import Calender
 
-class Month():
+class Month(Calender):
 	def __init__(self,index:int) -> None:
-		self.index = index
-		self.days = []
+		self.index = index #현재 월
+		super().__init__()
 		for i in range(1,32):
-			self.days.append(Day(i))
+			self.add_sub_date(Day(i))
 
-	def add_deal(self,data:dict):
-		day = self.get_day(data["day"])
-		day.add_deal(data)
-		
-	def get_day(self,index):
-		for day in self.days:
-			if day.index == index: return day
-		return None
+	def get_sub_index_from_deal(self, deal):
+		return deal.day
+	

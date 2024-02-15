@@ -1,17 +1,13 @@
 from Month import Month
+from Calender import Calender
 
-class Year():
+class Year(Calender):
 	def __init__(self,year:int) -> None:
 		self.index = year
-		self.months = []
+		super().__init__()
 		for i in range(1,13):
-			self.months.append(Month(i))
+			self.add_sub_date(Month(i))
 
-	def add_deal(self,data:dict):
-		month = self.get_month(data["month"])
-		month.add_deal(data)
+	def get_sub_index_from_deal(self, deal):
+		return deal.month
 		
-	def get_month(self,index):
-		for month in self.months:
-			if month.index == index: return month
-		return None

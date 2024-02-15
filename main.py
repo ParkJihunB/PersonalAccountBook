@@ -17,4 +17,4 @@ from GuiManager import GuiManager
 # win.show()
 # app.exec_()
 
-#pyreverse -o png ./Q
+#pyreverse -o png ./

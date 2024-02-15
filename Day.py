@@ -1,22 +1,24 @@
-from Expense import Expense
-from Income import Income
+from Calender import Calender
+from DealManager import DealManager
 
-class Day():
+class Day(Calender):
 	#모든 deal의 종류를 넣어둘 것!
 	def __init__(self,index:int) -> None:
+		super().__init__()
 		self.index = index #현재 날짜
+		self.dealM = DealManager()
 		self.expenses = []
 		self.incomes = []
 
-	def add_deal(self,data:dict):
-		print(data)
+	#하위 오브젝트 없어서 send 끝나고 걍 저장함
+	def send_data(self,deal): 
+		print("sended")
+
+	def get_sub_index_from_deal(self, deal):
+		return None
 
 	#일단은 expense만 가져온걸로 함
-	def check_duplicate(self,date_time,deal):
-		for expense in self.expenses:
-			if expense.dateTime.meridiem != date_time.meridiem: continue
-			if expense.dateTime.hour != date_time.hour: continue
-			if expense.dateTime.minute != date_time.minute: continue
-			if deal.amount != deal.amount: continue
-			return True
+	def check_same(self,date_time,deal):
+		for expense in self.dealM.get_expense_list():
+			if expense == deal: return True
 		return False

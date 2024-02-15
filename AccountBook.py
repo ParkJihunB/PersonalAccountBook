@@ -1,6 +1,6 @@
 from DataManager import DataManager
 from Book import Book
-from Expense import Expense
+from Deal import Deal
 
 class AccountBook():
 	def __init__(self) -> None:
@@ -10,15 +10,14 @@ class AccountBook():
 		#self.dataM.save_current_data(self.book)
 
 	def add_deal(self,year:int,month:int,day:int,hour:int,minute:int,amount:int):
-		temp_dict = {}
-		temp_dict["year"] = year
-		temp_dict["month"] = month
-		temp_dict["day"] = day
-		temp_dict["meridiem"] = (1 if hour>12 else 0)
-		temp_dict["hour"] = hour
-		temp_dict["minute"] = minute
-		temp_dict["amount"] = amount
-		self.book.add_deal(temp_dict)
+		new_deal = Deal()
+		new_deal.dateTime.year = year
+		new_deal.dateTime.month = month
+		new_deal.dateTime.day = day
+		new_deal.dateTime.hour = hour
+		new_deal.dateTime.minute = minute
+		new_deal.amount = amount
+		self.book.send_data(new_deal,self.book)
 
 	def get_linked_data(self): #코드 좆같이 짜놨네
 		linked_data = self.dataM.get_linked_data()
