@@ -23,11 +23,11 @@ class DataManager():
 	
 	def deal_to_dict(self,deal):
 		result = {}
-		result["year"] = deal.dateTime.year
-		result["month"] = deal.dateTime.month
-		result["day"] = deal.dateTime.day
-		result["meridiem"] = deal.dateTime.meridiem
-		result["hour"] = deal.dateTime.hour
-		result["minute"] = deal.dateTime.minute
+		result["year"] = deal.dt.year
+		result["month"] = deal.dt.month
+		result["day"] = deal.dt.day
+		result["meridiem"] = deal.dt.meridiem
+		result["hour"] = deal.dt.hour
+		result["minute"] = deal.dt.minute
 		result["amount"] = deal.amount
 		return result

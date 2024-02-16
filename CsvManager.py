@@ -1,5 +1,4 @@
 import csv
-from Deal import Deal #임시..
 
 class CsvManager():
 	def __init__(self) -> None:

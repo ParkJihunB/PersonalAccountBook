@@ -12,7 +12,7 @@ class Day(Calender):
 
 	#하위 오브젝트 없어서 send 끝나고 걍 저장함
 	def send_data(self,deal): 
-		print("sended")
+		print(deal)
 
 	def get_sub_index_from_deal(self, deal):
 		return None
