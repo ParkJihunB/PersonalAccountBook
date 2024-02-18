@@ -26,5 +26,14 @@ class DateTime():
 		if self.hour != dt.hour: return False
 		if self.minute != dt.minute: return False
 		return True
+	
+	def __str__(self):
+		result_str = ""
+		result_str += "year: " + str(self.year) + "\n"
+		result_str += "month: " + str(self.month) + "\n"
+		result_str += "day: " + str(self.day) + "\n"
+		result_str += "hour: " + str(self.hour) + "\n"
+		result_str += "minute: " + str(self.minute) + "\n"
+		return result_str
 
 

@@ -1,5 +1,5 @@
 
-from PyQt5.QtWidgets import *
+from PyQt5.QtWidgets import QWidget, QPushButton, QLineEdit,QHBoxLayout,QTabWidget,QVBoxLayout,QLabel,QCalendarWidget,QApplication
 
 #push 버튼 위젯 만들어준다
 def createPushBtn(name, func):
@@ -13,8 +13,16 @@ def createLineEdit(limit = None):
 	if limit != None: line_edit.setValidator(limit)
 	return line_edit
 
+def create_tab(tab_list:list):
+	tabs = QTabWidget()
+	for tab in tab_list:
+		tabs.addTab(QWidget(),tab)
+	vbox = QVBoxLayout()
+	vbox.addWidget(tabs)
+	return vbox
+
 #hbox에 위젯이나 레이아웃을 차곡차곡 넣어서 리턴해줌
-def createHbox(items = []):
+def create_hbox(items = []):
 	hbox = QHBoxLayout()
 	for item in items:
 		if item.isWidgetType():
