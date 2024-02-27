@@ -1,18 +1,12 @@
 from DateTime import DateTime
 
+#돈이 오고가는 종류는 모두 다
 class Deal():
 	def __init__(self,) -> None:
 		self.amount = 0 #금액
 		self.dt = DateTime() #시간
 		self.content = "" #내용
-		self.types = [] #대분류
-		self.sub_types = {}
 
-		self.__set_types()
-
-	def __set_types(self):
-		for item in self.types:
-			self.sub_types[item] = [item+"-소분류1",item+"-소분류2"]
 
 	def __eq__(self, other): #비교 연산자 오버로딩
 		return self.__check_same(other)
@@ -26,7 +20,6 @@ class Deal():
 		return str_result
 	
 	def __check_same(self, data): 
-		if self.type != data.type: return False
 		if self.dt.check_same(data.dt) == False: return False
 		if self.amount != data.amount: return False
 		return True

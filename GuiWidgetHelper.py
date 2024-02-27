@@ -1,5 +1,5 @@
 
-from PyQt5.QtWidgets import QWidget, QPushButton, QLineEdit,QHBoxLayout,QTabWidget,QVBoxLayout,QLabel,QCalendarWidget,QApplication
+from PyQt5.QtWidgets import QWidget, QPushButton, QLineEdit,QHBoxLayout,QTabWidget,QVBoxLayout,QLabel,QCalendarWidget,QApplication, QDialog
 
 #push 버튼 위젯 만들어준다
 def createPushBtn(name, func):
@@ -12,6 +12,13 @@ def createLineEdit(limit = None):
 	line_edit = QLineEdit()
 	if limit != None: line_edit.setValidator(limit)
 	return line_edit
+
+#다이얼로그 위젯 만들어준다
+def create_dialog(modality,window_size:list):
+	dialog = QDialog()
+	dialog.setWindowModality(modality)
+	if window_size is not None: dialog.resize(window_size)
+	return dialog
 
 def create_tab(tab_list:list):
 	tabs = QTabWidget()

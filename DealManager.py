@@ -1,5 +1,6 @@
 from Expense import Expense
 from Income import Income
+from Transfer import Transfer
 
 class DealManager():
     def __init__(self) -> None:
