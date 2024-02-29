@@ -1,5 +1,5 @@
 from GuiWidgetHelper import *
-from GuiDealInputDialog import GuiDealInput
+from GuiDealInputDialog import GuiDealInputDialog
 from PyQt5 import QtGui
 from PyQt5.QtCore import Qt, QDate
 from PyQt5.QtGui import QIcon
@@ -14,7 +14,7 @@ class GuiManager(QWidget):
 
     def __init__(self):
         super().__init__()
-        self.gui_deal = GuiDealInput()
+        self.gui_deal = GuiDealInputDialog()
         self.ac = AccountBook()
         self.__init_window()
         self.__init_layout()
@@ -57,7 +57,6 @@ class GuiManager(QWidget):
         self.gui_deal.open_input_window(self.select_year,self.select_month,self.select_day)
 
 #helper functions
-
 
 #기타 gui 함수(길어서 빼뒀음)
     #날짜 변경하면 라벨과 현재 날짜 저장하는 변수 생성

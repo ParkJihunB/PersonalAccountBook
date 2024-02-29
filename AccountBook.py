@@ -1,4 +1,5 @@
 from DataManager import DataManager
+from CategoryManager import CategoryManager
 from Book import Book
 from Deal import Deal
 
@@ -6,6 +7,7 @@ class AccountBook():
 	def __init__(self) -> None:
 		self.dataM = DataManager()
 		self.book = Book()
+		self.catagoryM = CategoryManager(self.dataM.jsonM.load_data_file("Category.json"))
 		#self.get_linked_data()
 		#self.dataM.save_current_data(self.book)
 
