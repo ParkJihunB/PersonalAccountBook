@@ -2,7 +2,8 @@ from GuiWidgetHelper import *
 from PyQt5 import QtGui
 
 class GuiDealInput(): #deal에 공통으로 들어가는 위젯 생성
-    def __init__(self) -> None:
+    def __init__(self,categoryM) -> None:
+        self.categoryM = categoryM
         self.tab_name = ""
         self.tab_widget = QWidget()
         self.hour = 0
@@ -25,17 +26,25 @@ class GuiDealInput(): #deal에 공통으로 들어가는 위젯 생성
         self.le_hour = createLineEdit(limit=QtGui.QIntValidator())
         self.le_minute = createLineEdit(limit=QtGui.QIntValidator())
         self.le_amount = createLineEdit(limit=QtGui.QIntValidator())
+        self.init_category_combo()
         self.le_content = createLineEdit()
-        #self.btn_enter = createPushBtn("Enter",self.send_deal)
+        self.btn_enter = createPushBtn("Enter",self.send_deal)
         
         hour = create_hbox([QLabel("시간: "),self.le_hour])
         minute  = create_hbox([QLabel("분: "),self.le_minute])
         self.vbox = QVBoxLayout()
         self.vbox.addWidget(self.lb_date)
         self.vbox.addLayout(create_hbox([hour,minute]))
+        self.vbox.addLayout(create_hbox([QLabel("분류: "),self.cb_category]))
+        self.vbox.addLayout(create_hbox([QLabel("소분류: "),self.cb_sub_category]))
         self.vbox.addLayout(create_hbox([QLabel("금액: "),self.le_amount]))
         self.vbox.addLayout(create_hbox([QLabel("내용: "),self.le_content]))
-        #self.vbox.addWidget(self.btn_enter)
+        self.vbox.addWidget(self.btn_enter)
+
+#gui와 연결된 함수
+    def send_deal(self): pass
+    def update_sub_category(self): pass
+#기타 함수
 #gui에서 데이터 가져오기
     def get_hour(self): return self.get_line_edit_text_to_int(self.le_hour)
     def get_minute(self): return self.get_line_edit_text_to_int(self.le_minute)
@@ -46,20 +55,30 @@ class GuiDealInput(): #deal에 공통으로 들어가는 위젯 생성
     def get_line_edit_text_to_int(self,le):
         if le.text() == "": return 0
         return int(le.text())
+#카테고리 매니저 참고해서 콤보박스 만들기
+    def init_category_combo(self):
+        self.get_current_category()
+        self.cb_category = create_combo((list)(self.current_cat.keys()))
+        self.cb_category.currentIndexChanged.connect(self.update_sub_category)
+        self.cb_sub_category = create_combo([])
+
+    def get_current_category(self): #deal의 종류에 따라 다르다
+        self.current_cat = self.categoryM.expense_cat
+
     
 
 #딜의 종류마다 각각의 딜에 해당되는 분류 같은 것 불러와서 콤보 박스 생성하고..
 class GuiDealInputExpense(GuiDealInput):
-    def __init__(self) -> None:
-        super().__init__()
+    def __init__(self,categoryM) -> None:
+        super().__init__(categoryM)
         self.tab_name = "Expense"
 
 class GuiDealInputIncome(GuiDealInput):
-    def __init__(self) -> None:
-        super().__init__()
+    def __init__(self,categoryM) -> None:
+        super().__init__(categoryM)
         self.tab_name = "Income"
 
 class GuiDealInputTransfer(GuiDealInput):
-    def __init__(self) -> None:
-        super().__init__()
+    def __init__(self,categoryM) -> None:
+        super().__init__(categoryM)
         self.tab_name = "Transfer"

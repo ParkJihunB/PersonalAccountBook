@@ -14,8 +14,8 @@ class GuiManager(QWidget):
 
     def __init__(self):
         super().__init__()
-        self.gui_deal = GuiDealInputDialog()
         self.ac = AccountBook()
+        self.gui_deal = GuiDealInputDialog(self.ac.categoryM)
         self.__init_window()
         self.__init_layout()
 

@@ -6,14 +6,14 @@ from Income import Income
 from Transfer import Transfer
 
 class GuiDealInputDialog():
-    def __init__(self):
+    def __init__(self,categoryM):
         self.select_year = 0
         self.select_month = 0
         self.select_day = 0
         #탭에 넣을 것들 딕셔너리에 넣기
-        expense_tab = GuiDealInputExpense()
-        income_tab = GuiDealInputIncome()
-        transfer_tab = GuiDealInputTransfer()
+        expense_tab = GuiDealInputExpense(categoryM)
+        income_tab = GuiDealInputIncome(categoryM)
+        transfer_tab = GuiDealInputTransfer(categoryM)
         self.tabs_dict = {expense_tab.tab_name: expense_tab, income_tab.tab_name:income_tab, transfer_tab.tab_name: transfer_tab}
         self.current_tab = expense_tab.tab_name
 
