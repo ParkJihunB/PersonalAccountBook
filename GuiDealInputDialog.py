@@ -14,7 +14,10 @@ class GuiDealInputDialog():
         expense_tab = GuiDealInputExpense(categoryM)
         income_tab = GuiDealInputIncome(categoryM)
         transfer_tab = GuiDealInputTransfer(categoryM)
-        self.tabs_dict = {expense_tab.tab_name: expense_tab, income_tab.tab_name:income_tab, transfer_tab.tab_name: transfer_tab}
+        self.tabs_dict = {
+            expense_tab.tab_name: expense_tab, 
+            income_tab.tab_name:income_tab, 
+            transfer_tab.tab_name: transfer_tab}
         self.current_tab = expense_tab.tab_name
 
         self.__init_deal_tabs()

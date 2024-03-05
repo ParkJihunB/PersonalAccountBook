@@ -6,9 +6,6 @@ class DataManager():
 		self.jsonM = JsonManager()
 		self.csvM = CsvManager()
 		self.data = self.jsonM.load_data()
-		self.link_data = self.csvM.link_comfort_ac()
-
-	def get_linked_data(self): return self.link_data
 
 	def save_current_data(self,book):
 		new_data = []

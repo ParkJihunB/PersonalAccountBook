@@ -33,8 +33,7 @@ class GuiDealInput(): #deal에 공통으로 들어가는 위젯 생성
         hour = create_hbox([QLabel("시간: "),self.le_hour])
         minute  = create_hbox([QLabel("분: "),self.le_minute])
         self.vbox = QVBoxLayout()
-        self.vbox.addWidget(self.lb_date)
-        self.vbox.addLayout(create_hbox([hour,minute]))
+        self.vbox.addLayout(create_hbox([self.lb_date,hour,minute]))
         self.vbox.addLayout(create_hbox([QLabel("분류: "),self.cb_category]))
         self.vbox.addLayout(create_hbox([QLabel("소분류: "),self.cb_sub_category]))
         self.vbox.addLayout(create_hbox([QLabel("금액: "),self.le_amount]))
@@ -43,7 +42,11 @@ class GuiDealInput(): #deal에 공통으로 들어가는 위젯 생성
 
 #gui와 연결된 함수
     def send_deal(self): pass
-    def update_sub_category(self): pass
+    def update_sub_category(self): #분류가 바뀔 경우 소분류 콤보 박스 업데이트
+        current_sub = self.current_cat[self.cb_category.currentText()]
+        self.cb_sub_category.clear()
+        for item in current_sub:
+            self.cb_sub_category.addItem(item)
 #기타 함수
 #gui에서 데이터 가져오기
     def get_hour(self): return self.get_line_edit_text_to_int(self.le_hour)
@@ -61,9 +64,10 @@ class GuiDealInput(): #deal에 공통으로 들어가는 위젯 생성
         self.cb_category = create_combo((list)(self.current_cat.keys()))
         self.cb_category.currentIndexChanged.connect(self.update_sub_category)
         self.cb_sub_category = create_combo([])
+        self.update_sub_category()
 
-    def get_current_category(self): #deal의 종류에 따라 다르다
-        self.current_cat = self.categoryM.expense_cat
+    def get_current_category(self): 
+        pass #deal의 종류에 따라 다르므로 추상 메소드
 
     
 
@@ -73,12 +77,21 @@ class GuiDealInputExpense(GuiDealInput):
         super().__init__(categoryM)
         self.tab_name = "Expense"
 
+    def get_current_category(self): #deal의 종류에 따라 다르다
+        self.current_cat = self.categoryM.expense_cat
+
 class GuiDealInputIncome(GuiDealInput):
     def __init__(self,categoryM) -> None:
         super().__init__(categoryM)
         self.tab_name = "Income"
 
+    def get_current_category(self): #deal의 종류에 따라 다르다
+        self.current_cat = self.categoryM.income_cat
+
 class GuiDealInputTransfer(GuiDealInput):
     def __init__(self,categoryM) -> None:
         super().__init__(categoryM)
         self.tab_name = "Transfer"
+
+    def get_current_category(self): #deal의 종류에 따라 다르다
+        self.current_cat = self.categoryM.transfer_cat
