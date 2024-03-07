@@ -27,6 +27,7 @@ class GuiDealInputDialog():
         self.select_year = year
         self.select_month = month
         self.select_day = day
+        self.tab_changed(self.input_tab.currentIndex()) #새 창 열때 탭 업데이트
         self.input_dialog.show()
 
     def __init_deal_tabs(self):
