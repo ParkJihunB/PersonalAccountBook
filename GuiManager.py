@@ -49,9 +49,8 @@ class GuiManager(QWidget):
         self.select_year = date.year()
         self.select_month = date.month()
         self.select_day = date.day()
-        self.year_lb.setText(str(self.select_year)+"년")
-        self.month_lb.setText(str(self.select_month)+"월")
-        self.date_lb.setText(str(self.select_day)+"일")
+        self.__set_date_label() #날짜 표시 라벨 수정
+        self.__call_data_by_date() #해당 날짜의 데이터 불러오기
 
     def open_input_window(self):
         self.gui_deal.open_input_window(self.select_year,self.select_month,self.select_day)
@@ -59,6 +58,13 @@ class GuiManager(QWidget):
 #helper functions
 
 #기타 gui 함수(길어서 빼뒀음)
+    def __call_data_by_date(self):
+        data = self.ac.call_data_by_date(self.select_year,self.select_month,self.select_day)
+
+    def __set_date_label(self):
+        self.year_lb.setText(str(self.select_year)+"년")
+        self.month_lb.setText(str(self.select_month)+"월")
+        self.date_lb.setText(str(self.select_day)+"일")
     #날짜 변경하면 라벨과 현재 날짜 저장하는 변수 생성
     def __create_date_label_layout(self):
         self.year_lb = QLabel("")

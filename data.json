@@ -1,101 +1,30 @@
 [
     {
-        "year": 2024,
-        "month": 2,
-        "day": 1,
-        "meridiem": 0,
-        "hour": 0,
-        "minute": 0,
-        "amount": "500000"
+        "type": "Expense",
+        "amount": "66000",
+        "dt": {
+            "year": 2024,
+            "month": 2,
+            "day": 11,
+            "hour": 13,
+            "minute": 4
+        },
+        "content": "스팀",
+        "category": "문화생활",
+        "sub_category": "게임"
     },
     {
-        "year": 2024,
-        "month": 2,
-        "day": 3,
-        "meridiem": 1,
-        "hour": 17,
-        "minute": 29,
-        "amount": "9500"
-    },
-    {
-        "year": 2024,
-        "month": 2,
-        "day": 5,
-        "meridiem": 1,
-        "hour": 18,
-        "minute": 47,
-        "amount": "1000"
-    },
-    {
-        "year": 2024,
-        "month": 2,
-        "day": 5,
-        "meridiem": 1,
-        "hour": 18,
-        "minute": 24,
-        "amount": "3000"
-    },
-    {
-        "year": 2024,
-        "month": 2,
-        "day": 7,
-        "meridiem": 1,
-        "hour": 19,
-        "minute": 2,
-        "amount": "3000"
-    },
-    {
-        "year": 2024,
-        "month": 2,
-        "day": 8,
-        "meridiem": 1,
-        "hour": 19,
-        "minute": 44,
-        "amount": "5000"
-    },
-    {
-        "year": 2024,
-        "month": 2,
-        "day": 9,
-        "meridiem": 1,
-        "hour": 16,
-        "minute": 5,
-        "amount": "2900"
-    },
-    {
-        "year": 2024,
-        "month": 2,
-        "day": 9,
-        "meridiem": 1,
-        "hour": 13,
-        "minute": 27,
-        "amount": "3900"
-    },
-    {
-        "year": 2024,
-        "month": 2,
-        "day": 9,
-        "meridiem": 0,
-        "hour": 0,
-        "minute": 0,
-        "amount": "1990"
-    },
-    {
-        "year": 2024,
-        "month": 2,
-        "day": 10,
-        "meridiem": 1,
-        "hour": 20,
-        "minute": 6,
-        "amount": "3880"
-    },
-    {
-        "year": 2024,
-        "month": 2,
-        "day": 11,
-        "meridiem": 1,
-        "hour": 13,
-        "minute": 4,
-        "amount": "66000"
+        "type": "Expense",
+        "amount": "3880",
+        "dt": {
+            "year": 2024,
+            "month": 2,
+            "day": 10,
+            "hour": 20,
+            "minute": 6
+        },
+        "content": "리디",
+        "category": "문화생활",
+        "sub_category": "음악/도서"
     }
 ]

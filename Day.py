@@ -17,8 +17,16 @@ class Day(Calender):
     def send_data(self,deal): 
         deal_type = deal.current_type #현재 deal의 종류를 가져온다(income,expense...)
         if deal_type in self.deals:
+            if self.__check_same_data_in(deal_type,deal): return
             self.deals[deal_type].append(deal)
         self.is_new_change = True
+
+    def get_data_as_list(self): 
+        result = []
+        for key in self.deals.keys(): #각각의 딜 타입에 따라
+            for deal in self.deals[key]: #각각의 리스트에 deal 저장
+                result.append(deal.get_data_as_dict())
+        return result
 
     #새로운 수정사항이 있는지 확인하고 통계 정보 주는 함수
     def get_expense_state(self):
@@ -27,7 +35,7 @@ class Day(Calender):
     def get_income_state(self):
         if self.is_new_change: self.__sum_up()
         return self.__incomes
-    
+
     #수정할 값이 생겼을 때만 호출
     def __sum_up(self): #통계 낸다는 뜻임
         #결국 그냥 deal 타입을 가져오는구나...
@@ -37,12 +45,8 @@ class Day(Calender):
             self.__incomes += income.amount
         #TODO: Transfer는 안 해도 돼?
         self.is_new_change = False #통계 다 냈으니까 더이상 또 호출할 필요 없음
-
-    def get_sub_index_from_deal(self, deal):
-        return None
-
-    #일단은 expense만 가져온걸로 함
-    def check_same(self,date_time,deal):
-        for expense in self.dealM.get_expense_list():
-            if expense == deal: return True
+    
+    def __check_same_data_in(self,key_type,deal): #리스트 안에 같은 데이터가 있는지 살펴본다
+        for item in self.deals[key_type]:
+            if item == deal: return True
         return False

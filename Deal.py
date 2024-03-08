@@ -14,6 +14,25 @@ class Deal():
         self.category = cat
         self.sub_category = sub_cat
 
+    def get_data_as_dict(self):
+        result = {}
+        result["type"] = self.current_type
+        result["amount"] = self.amount
+        result["dt"] = self.dt.get_data_as_dict()
+        result["content"] = self.content
+        result["category"] = self.category
+        result["sub_category"] = self.sub_category
+        return result
+    
+    def set_deal_by_dict_data(self,dict_deal):
+        self.current_type = dict_deal["type"]
+        self.amount = dict_deal["amount"]
+        self.dt.get_dict_to_date(dict_deal["dt"])
+        self.content = dict_deal["content"]
+        self.category = dict_deal["category"]
+        self.sub_category = dict_deal["sub_category"]
+        
+
     def __eq__(self, other): #비교 연산자 오버로딩
         return self.__check_same(other)
     

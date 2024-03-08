@@ -2,12 +2,13 @@ from Month import Month
 from Calender import Calender
 
 class Year(Calender):
-	def __init__(self,year:int) -> None:
-		self.index = year
-		super().__init__()
-		for i in range(1,13):
-			self.add_sub_date(Month(i),i)
+    def __init__(self,year:int) -> None:
+        self.index = year
+        super().__init__()
 
-	def get_sub_index_from_deal(self, deal):
-		return deal.dt.month
-		
+    def add_sub_date(self,sub_index):
+        self.sub_date[sub_index] = Month(sub_index)
+        
+    def get_sub_index_from_deal(self, deal):
+        return deal.dt.month
+        

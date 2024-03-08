@@ -9,22 +9,26 @@ class AccountBook():
         self.dataM = DataManager()
         self.book = Book()
         self.categoryM = CategoryManager(self.dataM.jsonM.load_data_file("Category.json"))
-        self.__link_comfort_accountBook()
+        #self.__link_comfort_accountBook()
+        self.__load_data()
+
+    def call_data_by_date(self,year_,month_,day_):
+        pass
         
     def __link_comfort_accountBook(self):
         cab = ComfortAccoutBook(self.dataM.csvM.open_file_to_dict("comfort_data.csv"))
         for deal in cab.deal_list:
             self.add_deal(deal)
+        self.__save_data()
 
-    def add_deal(self,year:int,month:int,day:int,hour:int,minute:int,amount:int):
-        new_deal = Deal()
-        new_deal.dt.year = year
-        new_deal.dt.month = month
-        new_deal.dt.day = day
-        new_deal.dt.hour = hour
-        new_deal.dt.minute = minute
-        new_deal.amount = amount
-        self.book.send_data(new_deal)
+    def __load_data(self):
+        deal_list = self.dataM.load_data_to_deal_list()
+        for deal in deal_list:
+            self.add_deal(deal)
+
+    def __save_data(self): #데이터 저장은 자동으로
+        #TODO: 데이터 저장은 데이터 변경될 때 마다 자동 업데이트 가능?
+        current_data = self.dataM.save_data_as_json(self.book.get_data_as_list(),"")
     
     def add_deal(self,new_deal):
         self.book.send_data(new_deal)

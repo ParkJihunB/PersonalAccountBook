@@ -1,9 +1,6 @@
 from GuiWidgetHelper import *
 from GuiDealInput import GuiDealInputExpense, GuiDealInputIncome, GuiDealInputTransfer
 from PyQt5 import QtGui
-from Expense import Expense #deal 타입
-from Income import Income 
-from Transfer import Transfer
 
 class GuiDealInputDialog():
     def __init__(self,categoryM):
@@ -47,13 +44,15 @@ class GuiDealInputDialog():
         self.current_tab = list(self.tabs_dict.keys())[tab]
         self.tabs_dict[self.current_tab].set_current_date(self.select_year,self.select_month,self.select_day)
 
-    def send_deal(self):
-        new_deal = None
-        if self.current_tab == "Expense": new_deal = Expense()
-        elif self.current_tab == "Income": new_deal = Income()
-        elif self.current_tab == "Transfer": new_deal = Transfer()
-        new_deal.dt.set_date(self.select_year,self.select_month,self.select_day)
-        new_deal.dt.set_time(self.get_hour(),self.get_minute())
-        new_deal.content = self.get_content()
-        new_deal.amount = self.get_amount()
+    def send_deal_as_dict(self):
+        new_deal = {}
+        new_deal["type"] = self.current_tab
+        new_deal["dt"] = {}
+        new_deal["dt"]["year"] = self.select_year
+        new_deal["dt"]["month"] = self.select_month
+        new_deal["dt"]["day"] = self.select_day
+        new_deal["dt"]["hour"] = self.get_hour()
+        new_deal["dt"]["minute"] = self.get_minute()
+        new_deal["content"] = self.get_content()
+        new_deal["amount"] = self.get_amount()
         self.input_dialog.close()
