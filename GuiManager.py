@@ -58,8 +58,10 @@ class GuiManager(QWidget):
 #helper functions
 
 #기타 gui 함수(길어서 빼뒀음)
-    def __call_data_by_date(self):
-        data = self.ac.call_data_by_date(self.select_year,self.select_month,self.select_day)
+    def __call_data_by_date(self): #날짜에 맞춰 데이터 받아서 표시
+        str_data = self.ac.call_data_by_date(self.select_year,self.select_month,self.select_day)
+        if str_data == None: self.date_data_lb.setText("None") #데이터 없음
+        else: self.date_data_lb.setText(str_data)
 
     def __set_date_label(self):
         self.year_lb.setText(str(self.select_year)+"년")
@@ -70,8 +72,10 @@ class GuiManager(QWidget):
         self.year_lb = QLabel("")
         self.month_lb = QLabel("")
         self.date_lb = QLabel("")
-        return create_hbox([self.year_lb,self.month_lb,self.date_lb])
-
+        self.date_data_lb = QLabel("ddddd")
+        date_box = create_hbox([self.year_lb,self.month_lb,self.date_lb])
+        return create_vbox([date_box,self.date_data_lb])
+    
 app = QApplication(sys.argv)
 win = GuiManager()
 win.show()

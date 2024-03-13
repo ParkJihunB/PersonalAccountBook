@@ -9,11 +9,11 @@ class AccountBook():
         self.dataM = DataManager()
         self.book = Book()
         self.categoryM = CategoryManager(self.dataM.jsonM.load_data_file("Category.json"))
-        #self.__link_comfort_accountBook()
+        self.__link_comfort_accountBook()
         self.__load_data()
 
     def call_data_by_date(self,year_,month_,day_):
-        pass
+        return self.book.call_data_by_date(year_,month_,day_)
         
     def __link_comfort_accountBook(self):
         cab = ComfortAccoutBook(self.dataM.csvM.open_file_to_dict("comfort_data.csv"))

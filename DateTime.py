@@ -31,7 +31,7 @@ class DateTime():
     def get_dict_to_date(self,dict_date):
         self.year = dict_date["year"]
         self.month = dict_date["month"]
-        self.day = dict_date["year"]
+        self.day = dict_date["day"]
         self.hour = dict_date["hour"]
         self.minute = dict_date["minute"]
 

@@ -38,10 +38,12 @@ class Deal():
     
     def __str__(self):
         str_result = ""
-        str_result += str(self.dt)
-        str_result += "content: " + str(self.content) + "\n"
-        str_result += "amount: " + str(self.amount) + "\n"
-        str_result += str(type(self))
+        str_result += str(self.content)+": "
+        str_result += str(self.amount)
+        # str_result += str(self.dt)
+        # str_result += "content: " + str(self.content) + "\n"
+        # str_result += "amount: " + str(self.amount) + "\n"
+        # str_result += str(type(self))
         return str_result
     
     def __check_same(self, data): 

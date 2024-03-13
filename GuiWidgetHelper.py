@@ -42,3 +42,12 @@ def create_hbox(items = []):
 			hbox.addWidget(item)
 		else: hbox.addLayout(item)
 	return hbox
+
+#vbox에 위젯이나 레이아웃을 차곡차곡 넣어서 리턴해줌
+def create_vbox(items = []):
+	vbox = QVBoxLayout()
+	for item in items:
+		if item.isWidgetType():
+			vbox.addWidget(item)
+		else: vbox.addLayout(item)
+	return vbox

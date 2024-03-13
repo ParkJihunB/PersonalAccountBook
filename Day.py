@@ -13,6 +13,9 @@ class Day(Calender):
         self.__expenses = 0 #지출 총합
         self.__incomes = 0 #수입 총합
 
+        self.__stat_income = 0
+        self.__stat_expense = 0
+
     #하위 오브젝트 없어서 send 끝나고 걍 저장함
     def send_data(self,deal): 
         deal_type = deal.current_type #현재 deal의 종류를 가져온다(income,expense...)
@@ -35,6 +38,20 @@ class Day(Calender):
     def get_income_state(self):
         if self.is_new_change: self.__sum_up()
         return self.__incomes
+    def get_statistics_income(self):
+        if self.is_new_change: self.__sum_up()
+        return self.__stat_income
+    def get_statistics_expense(self):
+        if self.is_new_change: self.__sum_up()
+        return self.__stat_expense
+    
+    #요청한 날짜에 맞는 데이터 제공(str로 만들어서 줌)
+    def call_data_by_date(self,year_,month_,day_):
+        str_result = ""
+        for key in self.deals.keys(): #각각의 딜 타입에 따라
+            for deal in self.deals[key]:
+                str_result += str(deal)+"\n"
+        return str_result
 
     #수정할 값이 생겼을 때만 호출
     def __sum_up(self): #통계 낸다는 뜻임
