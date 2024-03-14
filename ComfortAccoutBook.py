@@ -1,12 +1,6 @@
 from Expense import Expense
 from Income import Income
 from Transfer import Transfer
-#데이터 예시
-# 날짜,자산,분류,소분류,내용,KRW,수입/지출,메모,금액,화폐,자산
-# 2024/02/11 13:04:35,대구은행,문화생활,게임,스팀,66000,지출,발더게,66000,KRW,66000
-# 2024/02/10 20:06:11,대구은행,문화생활,음악/도서,리디,3880,지출,던전밥,3880,KRW,3880
-# 2024/02/09 16:05:09,대구은행,식비,카페,이디야,2900,지출,스콘,2900,KRW,2900
-# 2024/02/09 13:27:33,대구은행,식비,카페,이디야,3900,지출,망고 요거트,3900,KRW,3900
 
 #편한 가계부 연동하는 클래스
 class ComfortAccoutBook():
@@ -22,7 +16,7 @@ class ComfortAccoutBook():
             self.deal_list.append(deal)
 
     def set_deal(self,item,deal): #Deal의 기본 사항 입력
-        deal.amount = item["금액"]
+        deal.amount = int(item["금액"])
         temp_dt = self.get_date_time(item["날짜"])
         deal.dt.set_date(temp_dt["year"],temp_dt["month"],temp_dt["day"])
         deal.dt.set_time(temp_dt["hour"],temp_dt["minute"])

@@ -1,7 +1,7 @@
 [
     {
         "type": "Expense",
-        "amount": "43500",
+        "amount": 43500,
         "dt": {
             "year": 2024,
             "month": 3,
@@ -15,7 +15,7 @@
     },
     {
         "type": "Expense",
-        "amount": "37800",
+        "amount": 37800,
         "dt": {
             "year": 2024,
             "month": 3,
@@ -29,7 +29,7 @@
     },
     {
         "type": "Expense",
-        "amount": "5500",
+        "amount": 5500,
         "dt": {
             "year": 2024,
             "month": 3,
@@ -43,7 +43,7 @@
     },
     {
         "type": "Expense",
-        "amount": "0",
+        "amount": 0,
         "dt": {
             "year": 2024,
             "month": 3,
@@ -57,7 +57,7 @@
     },
     {
         "type": "Expense",
-        "amount": "3200",
+        "amount": 3200,
         "dt": {
             "year": 2024,
             "month": 3,
@@ -71,7 +71,7 @@
     },
     {
         "type": "Expense",
-        "amount": "3500",
+        "amount": 3500,
         "dt": {
             "year": 2024,
             "month": 3,
@@ -85,7 +85,7 @@
     },
     {
         "type": "Expense",
-        "amount": "13130",
+        "amount": 13130,
         "dt": {
             "year": 2024,
             "month": 3,
@@ -99,7 +99,7 @@
     },
     {
         "type": "Expense",
-        "amount": "2700",
+        "amount": 2700,
         "dt": {
             "year": 2024,
             "month": 3,
@@ -113,7 +113,7 @@
     },
     {
         "type": "Expense",
-        "amount": "11970",
+        "amount": 11970,
         "dt": {
             "year": 2024,
             "month": 3,
@@ -127,7 +127,7 @@
     },
     {
         "type": "Expense",
-        "amount": "1990",
+        "amount": 1990,
         "dt": {
             "year": 2024,
             "month": 3,
@@ -141,7 +141,7 @@
     },
     {
         "type": "Expense",
-        "amount": "5900",
+        "amount": 5900,
         "dt": {
             "year": 2024,
             "month": 3,
@@ -155,7 +155,7 @@
     },
     {
         "type": "Expense",
-        "amount": "77300",
+        "amount": 77300,
         "dt": {
             "year": 2024,
             "month": 3,
@@ -169,7 +169,7 @@
     },
     {
         "type": "Expense",
-        "amount": "30000",
+        "amount": 30000,
         "dt": {
             "year": 2024,
             "month": 3,
@@ -183,7 +183,7 @@
     },
     {
         "type": "Expense",
-        "amount": "4980",
+        "amount": 4980,
         "dt": {
             "year": 2024,
             "month": 3,
@@ -197,7 +197,7 @@
     },
     {
         "type": "Expense",
-        "amount": "4000",
+        "amount": 4000,
         "dt": {
             "year": 2024,
             "month": 3,
@@ -211,7 +211,7 @@
     },
     {
         "type": "Expense",
-        "amount": "6700",
+        "amount": 6700,
         "dt": {
             "year": 2024,
             "month": 3,
@@ -225,7 +225,7 @@
     },
     {
         "type": "Expense",
-        "amount": "3000",
+        "amount": 3000,
         "dt": {
             "year": 2024,
             "month": 3,
@@ -239,7 +239,7 @@
     },
     {
         "type": "Expense",
-        "amount": "8400",
+        "amount": 8400,
         "dt": {
             "year": 2024,
             "month": 3,
@@ -253,7 +253,7 @@
     },
     {
         "type": "Expense",
-        "amount": "37000",
+        "amount": 37000,
         "dt": {
             "year": 2024,
             "month": 3,
@@ -267,7 +267,7 @@
     },
     {
         "type": "Expense",
-        "amount": "7000",
+        "amount": 7000,
         "dt": {
             "year": 2024,
             "month": 3,
@@ -281,7 +281,7 @@
     },
     {
         "type": "Expense",
-        "amount": "34000",
+        "amount": 34000,
         "dt": {
             "year": 2024,
             "month": 3,
@@ -295,7 +295,7 @@
     },
     {
         "type": "Expense",
-        "amount": "6200",
+        "amount": 6200,
         "dt": {
             "year": 2024,
             "month": 3,
@@ -309,7 +309,7 @@
     },
     {
         "type": "Expense",
-        "amount": "10000",
+        "amount": 10000,
         "dt": {
             "year": 2024,
             "month": 3,
@@ -323,7 +323,7 @@
     },
     {
         "type": "Expense",
-        "amount": "1800",
+        "amount": 1800,
         "dt": {
             "year": 2024,
             "month": 3,
@@ -337,7 +337,7 @@
     },
     {
         "type": "Expense",
-        "amount": "21400",
+        "amount": 21400,
         "dt": {
             "year": 2024,
             "month": 3,
@@ -351,7 +351,7 @@
     },
     {
         "type": "Expense",
-        "amount": "2700",
+        "amount": 2700,
         "dt": {
             "year": 2024,
             "month": 3,
@@ -365,7 +365,7 @@
     },
     {
         "type": "Transfer",
-        "amount": "500000",
+        "amount": 500000,
         "dt": {
             "year": 2024,
             "month": 3,

@@ -26,7 +26,7 @@ class Deal():
     
     def set_deal_by_dict_data(self,dict_deal):
         self.current_type = dict_deal["type"]
-        self.amount = dict_deal["amount"]
+        self.amount = int(dict_deal["amount"])
         self.dt.get_dict_to_date(dict_deal["dt"])
         self.content = dict_deal["content"]
         self.category = dict_deal["category"]

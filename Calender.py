@@ -2,6 +2,8 @@
 #Book, year,month 에 상속되어서 멤버 리스트의 하위 오브젝트를 찾아주는 가상 클래스
 #모든 서브 데이터에는 특정 index가 있는 걸로 친다
 class Calender():
+    is_new_change = False #새로운 값이 들어옴(통계 새로 낸다->sum_up 함수 호출한다)
+
     def __init__(self) -> None:
         self.sub_date = {}
     
@@ -12,8 +14,8 @@ class Calender():
     def get_sub(self,sub_index):
         return self.sub_date[sub_index]
     
-    def call_data_by_date(self,year_,month_,day_):
-        pass
+    def call_data_by_date(self,year_,month_,day_): pass
+    def call_data_by_month(self, year_, month_): pass
 
 	#받은 데이터의 인덱스에 맞게 하위로 데이터 보내주기
     def send_data(self,deal): 
@@ -21,6 +23,7 @@ class Calender():
         if current_index in self.sub_date: pass
         else: self.add_sub_date(current_index) #해당 인덱스가 없으면 만들어준다
         self.sub_date[current_index].send_data(deal)
+        self.is_new_change = True
 
     #하위 아이템들을 index에 맞춰 딕셔너리 저장
     def get_data_as_list(self):
