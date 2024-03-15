@@ -3,7 +3,6 @@ from GuiDealInputDialog import GuiDealInputDialog
 from PyQt5 import QtGui
 from PyQt5.QtCore import Qt, QDate
 from PyQt5.QtGui import QIcon
-import sys
 
 from AccountBook import AccountBook
 
@@ -95,10 +94,10 @@ class GuiManager(QWidget):
         date_box = create_hbox([self.year_lb,self.month_lb,self.date_lb])
         return create_vbox([self.month_state_lb,date_box,self.date_data_lb])
     
-app = QApplication(sys.argv)
-win = GuiManager()
-win.show()
-app.exec_()
+# app = QApplication(sys.argv)
+# win = GuiManager()
+# win.show()
+# app.exec_()
 
 
 #캘린더 참고: https://wikidocs.net/38036
