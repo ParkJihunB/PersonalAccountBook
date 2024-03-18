@@ -68,30 +68,3 @@ class GuiDealInput(): #deal에 공통으로 들어가는 위젯 생성
 
     def get_current_category(self): 
         pass #deal의 종류에 따라 다르므로 추상 메소드
-
-    
-
-#딜의 종류마다 각각의 딜에 해당되는 분류 같은 것 불러와서 콤보 박스 생성하고..
-class GuiDealInputExpense(GuiDealInput):
-    def __init__(self,categoryM) -> None:
-        super().__init__(categoryM)
-        self.tab_name = "Expense"
-
-    def get_current_category(self): #deal의 종류에 따라 다르다
-        self.current_cat = self.categoryM.expense_cat
-
-class GuiDealInputIncome(GuiDealInput):
-    def __init__(self,categoryM) -> None:
-        super().__init__(categoryM)
-        self.tab_name = "Income"
-
-    def get_current_category(self): #deal의 종류에 따라 다르다
-        self.current_cat = self.categoryM.income_cat
-
-class GuiDealInputTransfer(GuiDealInput):
-    def __init__(self,categoryM) -> None:
-        super().__init__(categoryM)
-        self.tab_name = "Transfer"
-
-    def get_current_category(self): #deal의 종류에 따라 다르다
-        self.current_cat = self.categoryM.transfer_cat

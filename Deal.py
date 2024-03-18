@@ -38,6 +38,7 @@ class Deal():
     
     def __str__(self):
         str_result = ""
+        str_result += "["+self.category+"]"
         str_result += str(self.content)+": "
         str_result += str(self.amount)
         # str_result += str(self.dt)

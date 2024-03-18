@@ -1,5 +1,6 @@
 from GuiWidgetHelper import *
 from GuiDealInputDialog import GuiDealInputDialog
+from GuiStatistic import GuiStatistic
 from PyQt5 import QtGui
 from PyQt5.QtCore import Qt, QDate
 from PyQt5.QtGui import QIcon
@@ -11,14 +12,12 @@ class GuiManager(QWidget):
     select_year = 0
     select_month = 0
     select_day = 0
-    #현재 페이지의 날짜 (페이지 변경되면 업데이트됨)
-    current_month = 0 
-    current_year = 0
 
     def __init__(self):
         super().__init__()
         self.ac = AccountBook()
         self.gui_deal = GuiDealInputDialog(self.ac.categoryM)
+        self.gui_stat = GuiStatistic(self.ac)
         self.__init_window()
         self.__init_layout()
 
@@ -27,8 +26,9 @@ class GuiManager(QWidget):
 
     def __init_layout(self):
         hbox = QHBoxLayout()
-        hbox.addLayout(self.__init_date_viewer_layout(),1)
-        hbox.addLayout(self.__initCalenderLayout(),1)
+        hbox.addLayout(self.__init_date_viewer_layout())
+        hbox.addLayout(self.__initCalenderLayout())
+        hbox.addLayout(self.gui_stat.main_layout)
         self.setLayout(hbox)
 
     def __init_date_viewer_layout(self):
@@ -58,10 +58,7 @@ class GuiManager(QWidget):
         self.__call_data_by_date() #해당 날짜의 데이터 불러오기
 
     def update_page(self):
-        self.current_year = self.cal.yearShown()
-        if self.current_month != self.cal.monthShown():
-            self.current_month = self.cal.monthShown()
-            self.__call_data_by_month(self.current_year,self.current_month)
+        self.gui_stat.update_monthly_statistic(self.cal.yearShown(),self.cal.monthShown())
 
     def open_input_window(self):
         self.gui_deal.open_input_window(self.select_year,self.select_month,self.select_day)
@@ -74,12 +71,6 @@ class GuiManager(QWidget):
         if str_data == None: self.date_data_lb.setText("") #데이터 없음
         else: self.date_data_lb.setText(str_data)
 
-    def __call_data_by_month(self,year_,month_):
-        str_data = self.ac.call_data_by_month(year_, month_)
-        if str_data == None: self.month_state_lb.setText("총 지출: 0\n총 수입: 0")
-        else: self.month_state_lb.setText(str_data)
-        
-
     def __set_date_label(self):
         self.year_lb.setText(str(self.select_year)+"년")
         self.month_lb.setText(str(self.select_month)+"월")
@@ -89,15 +80,8 @@ class GuiManager(QWidget):
         self.year_lb = QLabel("")
         self.month_lb = QLabel("")
         self.date_lb = QLabel("")
-        self.month_state_lb = QLabel("총 지출:\n총 수입:")
         self.date_data_lb = QLabel("ddddd")
         date_box = create_hbox([self.year_lb,self.month_lb,self.date_lb])
-        return create_vbox([self.month_state_lb,date_box,self.date_data_lb])
-    
-# app = QApplication(sys.argv)
-# win = GuiManager()
-# win.show()
-# app.exec_()
-
+        return create_vbox([date_box,self.date_data_lb])
 
 #캘린더 참고: https://wikidocs.net/38036

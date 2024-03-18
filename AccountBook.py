@@ -1,7 +1,7 @@
 from DataManager import DataManager
 from CategoryManager import CategoryManager
 from Book import Book
-from Deal import Deal
+from StatisticManager import StatisticManager
 from ComfortAccoutBook import ComfortAccoutBook
 
 class AccountBook():
@@ -9,6 +9,7 @@ class AccountBook():
         self.dataM = DataManager()
         self.book = Book()
         self.categoryM = CategoryManager(self.dataM.jsonM.load_data_file("Category.json"))
+        self.statisticM = StatisticManager()
         #self.__link_comfort_accountBook()
         self.__load_data()
 

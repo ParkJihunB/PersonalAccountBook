@@ -1,5 +1,7 @@
 from GuiWidgetHelper import *
-from GuiDealInput import GuiDealInputExpense, GuiDealInputIncome, GuiDealInputTransfer
+from GuiDealInputExpense import GuiDealInputExpense
+from GuiDealInputIncome import GuiDealInputIncome
+from GuiDealInputTransfer import GuiDealInputTransfer
 from PyQt5 import QtGui
 
 class GuiDealInputDialog():

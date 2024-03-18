@@ -4,7 +4,6 @@ class Statistic():
     expenses = 0 #지출 총합 - 그대로 값 가져가기 금지
     incomes = 0 #수입 총합
 
-
     def sum_up(self): pass
     #새로운 수정사항이 있는지 확인하고 통계 정보 주는 함수
     def get_expense_state(self):
